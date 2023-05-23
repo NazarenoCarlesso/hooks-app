@@ -1,13 +1,15 @@
-import './App.css'
-import { SimpleForm } from './components/SimpleForm'
+import { MultipleCustom } from './components/MultipleCustom'
+// import { FormCustom } from './components/FormCustom'
+// import { SimpleForm } from './components/SimpleForm'
 // import { Counter } from './components/Counter'
 // import { CounterCustom } from './components/CounterCustom'
+import './App.css'
 
 const App = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Hooks App</h1>
-      <SimpleForm />
+      <MultipleCustom />
     </div>
   )
 }
