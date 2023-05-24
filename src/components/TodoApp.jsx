@@ -1,29 +1,33 @@
-import { useReducer } from 'react'
-import { todoReducer } from './todoReducer'
-
-const initialState = [{
-  id: new Date().getTime(),
-  todo: 'Recolectar la piedra del alma',
-  done: 'false'
-}, {
-  id: new Date().getTime() * 3,
-  todo: 'Recolectar la piedra del tiempo',
-  done: 'false'
-}]
+import useTodos from '../hooks/useTodos'
+import { TodoList } from './TodoList'
 
 export const TodoApp = () => {
-  const [state, dispatch] = useReducer(todoReducer, initialState)
+  const { todos, addTodo, toggleTodo, removeTodo } = useTodos()
+  // console.log(todos)
 
   return (
     <>
-      <h1>Todo App</h1>
+      <h1>Todo App ({todos.length}) | <small>Pendientes: ({todos.filter(t => !t.done).length})</small></h1>
       <hr />
-
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', flexDirection: 'row' }}>
+        <TodoList
+          todos={todos}
+          toggleTodo={toggleTodo}
+          removeTodo={removeTodo}
+        />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+          <h1>Agregar Todo</h1>
+          <form onSubmit={addTodo}>
+            <input
+              type='text'
+              placeholder='¿Qué hay que hacer?'
+            />
+            <button type='submit' style={{ width: 201 }}>
+              Agregar
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   )
 }
