@@ -1,5 +1,8 @@
 import './App.css'
-import { MemorizeHook } from './components/MemorizeHook'
+import { TodoApp } from './components/TodoApp'
+// import { Padre } from './components/Padre'
+// import { CallbackHook } from './components/CallbackHook'
+// import { MemorizeHook } from './components/MemorizeHook'
 // import { Memorize } from './components/Memorize'
 // import { Layout } from './components/Layout'
 // import { MultipleCustom } from './components/MultipleCustom'
@@ -13,7 +16,7 @@ const App = () => {
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Hooks App</h1>
-      <MemorizeHook />
+      <TodoApp />
     </div>
   )
 }
