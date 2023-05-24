@@ -2,3 +2,7 @@
     text-decoration: line-through;
     color: gray;
 }
+
+.nav-active {
+    color: #ebebeb;
+}

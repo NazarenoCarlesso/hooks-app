@@ -5,3 +5,18 @@ body {
 button {
   margin-right: 10px;
 }
+
+a {
+  color: #afafaf;
+  text-decoration: none;
+  margin: 3px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #5ba0ff;
+}
+
+h3 {
+  font-style: italic;
+}
