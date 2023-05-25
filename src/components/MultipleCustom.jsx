@@ -3,8 +3,8 @@ import useCounter from '../hooks/useCounter'
 
 export const MultipleCustom = () => {
   const { counter, add, subs } = useCounter(1)
-  const { data, isLoading, hasError } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${counter}`)
-  console.log({ data, isLoading, hasError })
+  const { data, isLoading } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${counter}`)
+  // console.log({ data, isLoading, hasError })
 
   const { quote, author } = !!data && data[0]
 
