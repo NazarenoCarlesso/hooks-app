@@ -2,14 +2,22 @@ import { useEffect, useReducer } from 'react'
 import gemasMock from '../mocks/gemas'
 import { todoReducer } from '../reducers/todoReducer'
 
+const getTodos = () => {
+  try {
+    return JSON.parse(localStorage.getItem('todos')).length
+      ? JSON.parse(localStorage.getItem('todos'))
+      : gemasMock
+  } catch (error) {
+    return gemasMock
+  }
+}
+
 const useTodos = () => {
   const [todos, dispatch] = useReducer(
     todoReducer,
-    JSON.parse(localStorage.getItem('todos')).length
-      ? JSON.parse(localStorage.getItem('todos'))
-      : gemasMock
+    getTodos()
   )
-  console.log(todos)
+  // console.log(todos)
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
